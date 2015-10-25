@@ -1,13 +1,8 @@
-.fadein {
-	opacity: 1;
-	animation: fadein 10s;
+.eyetracking {
 	
-	@keyframes fadein {
-		0% {
-			opacity: 0;
-		}
-		100% {
-			opacity: 1;
-		}
+	video, canvas {
+		position: absolute;
+		margin-left: 230px;
+		margin-top: 120px;
 	}
 }
