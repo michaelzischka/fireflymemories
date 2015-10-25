@@ -11,13 +11,18 @@
 	<body class="center p2 bg-black">
 		
 		<div class="slide slide-1">			
-			<div class="fixed top-0 left-0 m4">
-				<h2 class="caps white">Eye-Tracking</h2>
-				<div class="eyetracking">
-					<video id="video" width="320" height="240" preload autoplay loop muted></video>
-					<canvas id="canvas" width="320" height="240"></canvas>
-				</div>
+			<h2 class="caps white">Eye-Tracking</h2>
+			<div class="eyetracking clearfix">
+				<video id="video" width="320" height="240" preload autoplay loop muted></video>
+				<canvas id="canvas" width="320" height="240"></canvas>
 			</div>
+			<h2 class="caps white">Video Autoplay</h2>
+			<div class="eyetracking">
+				<video width="320" height="240" autoplay loop>
+					<source src="video/test.mp4">
+				</video>
+			</div>
+
 		</div>
 		
 		<script type="text/javascript" src="js/script.js"></script>
@@ -30,7 +35,7 @@
 				var video = document.getElementById('video');
 				var canvas = document.getElementById('canvas');
 				var context = canvas.getContext('2d');
-				var tracker = new tracking.ObjectTracker(['eye']);
+				var tracker = new tracking.ObjectTracker(['eye', 'mouth']);
 				tracker.setStepSize(1,7);
 				tracker.setEdgesDensity(0.1);
 				tracking.track('#video', tracker, { camera: true });
