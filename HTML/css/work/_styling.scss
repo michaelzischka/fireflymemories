@@ -1,0 +1,13 @@
+.fadein {
+	opacity: 1;
+	animation: fadein 10s;
+	
+	@keyframes fadein {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+}

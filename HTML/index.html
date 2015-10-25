@@ -6,15 +6,42 @@
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" type="text/css" href="_css/style.css">
+		
+		  <style>
+  .rect {
+    border: 2px solid #a64ceb;
+    left: -1000px;
+    position: absolute;
+    top: -1000px;
+  }
+  #img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -173px 0 0 -300px;
+  }
+  </style>
+		
 	</head>
 	<body class="center p2 bg-black">
 		
-		<h2 class="caps white">Experience about Time</h2>
+		<div class="slide slide-1">			
+			<div class="fixed top-0 left-0 m4">
+				<h2 class="caps white">Eye-Tracking</h2>
+				<img id="img" src="http://trackingjs.com/bower/tracking.js/examples/assets/faces.jpg" />
+			</div>
+		</div>
 		
-		<video class="clear col-9" autoplay loop>
-			<source src="video/test.mp4">
-		</video>
+		<div class="slide slide-2 hide">
+			<img src="http://cc.be/images/uploads/85/delijn_firefly_sh050_still_v001_0132.jpg" class="fadein">
+			<div class="fixed top-0 left-0 m4">
+				<h2 class="caps white">Experience about Time</h2>
+				<video class="clear col-3" autoplay loop controls>
+					<source src="video/test.mp4">
+				</video>
+			</div>
+		</div>
 		
 		<script type="text/javascript" src="js/script.js"></script>
 	</body>
