@@ -1,0 +1,16 @@
+@import 'basscss';
+@import 'vars';
+@import 'mixins';
+@import 'font';
+@import 'nav';
+@import 'styling';
+//@import 'slick';
+
+// Device check
+.check-device { font-size: 1px !important; }
+@include breakpoint($breakpoint-md) { //tablet
+	.check-device { font-size: 2px !important; }
+}
+@include breakpoint($breakpoint-lg) { //desktop
+	.check-device { font-size: 3px !important; }
+}
