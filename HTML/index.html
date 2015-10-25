@@ -10,7 +10,10 @@
 	</head>
 	<body class="center p2 bg-black">
 		
-		<div class="slide slide-1">			
+		<div class="slide slide-1">		
+			<img src="img/foresttest.jpg" class="forest">	
+			<h2 class="caps white">Gyro Log</h2>
+			<div class="gyrolog h6 white"></div>
 			<h2 class="caps white">Eye-Tracking</h2>
 			<div class="eyetracking clearfix">
 				<video id="video" width="320" height="240" preload autoplay loop muted></video>
@@ -19,7 +22,7 @@
 			<h2 class="caps white">Video Autoplay</h2>
 			<div class="eyetracking">
 				<video width="320" height="240" autoplay loop>
-					<source src="video/test.mp4">
+					<source src="_video/test.mp4">
 				</video>
 			</div>
 
@@ -32,14 +35,34 @@
 		<script src="bower_components/tracking.js/build/data/mouth-min.js"></script>
 		<script>
 			window.onload = function() {
+				
+				var counter = 0;
+				window.addEventListener('deviceorientation', function () {
+					if (event.gamma == null) {
+						$('.gyrolog').html('Bitte benutze ein mobiles Endgerät.');
+					} else {
+						var pos = Math.ceil(event.gamma * 10);
+						if (pos > -4000 && pos < 0) {
+							$('.forest').css('left', pos);
+					    }
+					    $('.gyrolog').prepend(pos+'<br>');
+						counter++;
+						if (counter > 5) {
+							counter = 0;
+							$('.gyrolog').html('');
+						}
+					}
+				}, true);
+								
 				var video = document.getElementById('video');
 				var canvas = document.getElementById('canvas');
 				var context = canvas.getContext('2d');
 				var tracker = new tracking.ObjectTracker(['eye', 'mouth']);
 				tracker.setStepSize(1,7);
 				tracker.setEdgesDensity(0.1);
-				tracking.track('#video', tracker, { camera: true });
+				//tracking.track('#video', tracker, { camera: true });
 				tracker.on('track', function(event) {
+					console.log('move');
 					context.clearRect(0, 0, canvas.width, canvas.height);
 					event.data.forEach(function(rect) {
 						context.strokeStyle = '#fff';
