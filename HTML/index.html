@@ -6,22 +6,15 @@
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<link rel="stylesheet" type="text/css" href="_css/style.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
 		
-		  <style>
-  .rect {
-    border: 2px solid #a64ceb;
-    left: -1000px;
-    position: absolute;
-    top: -1000px;
-  }
-  #img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin: -173px 0 0 -300px;
-  }
-  </style>
+		<style>
+			video, canvas {
+				position: absolute;
+				margin-left: 230px;
+				margin-top: 120px;
+			}
+		</style>
 		
 	</head>
 	<body class="center p2 bg-black">
@@ -29,20 +22,40 @@
 		<div class="slide slide-1">			
 			<div class="fixed top-0 left-0 m4">
 				<h2 class="caps white">Eye-Tracking</h2>
-				<img id="img" src="http://trackingjs.com/bower/tracking.js/examples/assets/faces.jpg" />
-			</div>
-		</div>
-		
-		<div class="slide slide-2 hide">
-			<img src="http://cc.be/images/uploads/85/delijn_firefly_sh050_still_v001_0132.jpg" class="fadein">
-			<div class="fixed top-0 left-0 m4">
-				<h2 class="caps white">Experience about Time</h2>
-				<video class="clear col-3" autoplay loop controls>
-					<source src="video/test.mp4">
-				</video>
+				<video id="video" width="320" height="240" preload autoplay loop muted></video>
+				<canvas id="canvas" width="320" height="240"></canvas>
 			</div>
 		</div>
 		
 		<script type="text/javascript" src="js/script.js"></script>
+		<script src="bower_components/tracking.js/build/tracking-min.js"></script>
+		<script src="bower_components/tracking.js/build/data/face-min.js"></script>
+		<script src="bower_components/tracking.js/build/data/eye-min.js"></script>
+		<script src="bower_components/tracking.js/build/data/mouth-min.js"></script>
+		<script>
+			window.onload = function() {
+			  var video = document.getElementById('video');
+			  var canvas = document.getElementById('canvas');
+			  var context = canvas.getContext('2d');
+			
+			  var tracker = new tracking.ObjectTracker(['eye']);
+			  //tracker.setInitialScale(4);
+			  tracker.setStepSize(1,7);
+			  //tracker.setEdgesDensity(0.1);
+			
+			  tracking.track('#video', tracker, { camera: true });
+			
+			  tracker.on('track', function(event) {
+			    context.clearRect(0, 0, canvas.width, canvas.height);
+			
+			    event.data.forEach(function(rect) {
+			      context.strokeStyle = '#fff';
+			      context.strokeRect(rect.x, rect.y, rect.width, rect.height);
+			    });
+			  });
+			  
+			};
+		</script>
+		
 	</body>
 </html>
