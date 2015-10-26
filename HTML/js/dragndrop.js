@@ -3,13 +3,22 @@ var searchDl = 1;
 var l = 0;
 
 // Creates canvas 320 × 200 at 10, 50
-var r = Raphael(10, 50, 1024, 800);
+var r = Raphael(0, 0, $(window).width(), $(window).height());
 
-var p = r.path("M34.13,573.781 c0,0,12.079-17.691,33.031-17.762s29.577,11.389,31.32,17.543c1.624,5.735,9.755,15.61,30.706,15.447 c20.951-0.163,32.786-17.905,32.786-17.905s12.202-17.691,33.154-17.763s29.577,11.389,31.32,17.543 c1.624,5.735,9.755,15.61,30.706,15.447c20.951-0.163,30.967-15.549,30.967-15.549s12.079-17.691,33.031-17.762 c20.951-0.071,29.577,11.389,31.32,17.543c1.624,5.735,9.755,15.61,30.706,15.447c20.951-0.163,32.786-17.905,32.786-17.905 s12.202-17.691,33.154-17.763s29.577,11.389,31.32,17.543c1.624,5.735,9.755,15.61,30.706,15.447 c20.951-0.163,30.474-15.052,30.474-15.052s12.079-17.691,33.031-17.762c20.951-0.071,29.577,11.389,31.32,17.543 c1.624,5.735,9.755,15.61,30.706,15.447c20.951-0.163,32.786-17.905,32.786-17.905s12.202-17.691,33.154-17.763 c20.951-0.071,29.577,11.389,31.32,17.543c1.624,5.735,9.755,15.61,30.706,15.447c20.951-0.163,32.786-17.905,32.786-17.905").attr({stroke: "#ffffaa"}),
+var parts = parseInt($(window).width() / 152);
+
+var partRest = $(window).width() - (parts * 152);
+
+var pathSVG = "M" + parseInt(partRest * 2 + partRest / 2) + "," + ($(window).height() - 100);
+
+for (var i = 0; i < parts; i++) {
+  pathSVG += " c0,0,10-20,30-20 s30,20,30,20 c0,0,10,20,30,20 c20-0,30-20,30-20";
+}
+
+var p = r.path(pathSVG).attr({stroke: "#ffffaa"}),
   pt = p.getPointAtLength(l);
   e = r.ellipse(pt.x, pt.y, 10, 10).attr({stroke: "none", fill: "#ffff00"}),
   totLen = p.getTotalLength(),
-
 
 start = function () {
   // storing original coordinates
@@ -26,7 +35,7 @@ move = function (dx, dy) {
   l = gradSearch(l, tmpPt);
   pt = p.getPointAtLength(l);
   this.attr({cx: pt.x, cy: pt.y});
-  console.log('x=' + pt.x + ', y=' + pt.y);
+  sliderNext();
 },
 up = function () {
   // restoring state
