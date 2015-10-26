@@ -31,7 +31,9 @@
 		});
 
 		$('#horizontalel').gyroOn({
-			direction: 'horizontal'
+			direction: 'horizontal',
+			distance: 100,
+			speed: 2000
 		});
 
 		$('#verticalel').gyroOn({
@@ -81,35 +83,12 @@
 	</style>
 </head>
 <body>
-	<header>
-		<h1>jQuery Gyro</h1>
-		<h2>by Davide Cassenti</h2>
-
-		<p>jQuery Gyro lets you move elements in the page as you move the device. The effect uses the device motion sensor and lets you customize speed and distance.</p>
-	</header>
-	<div id="fixedel">
-		This element is in fixed position. It will always stay on top of the page, no matter how you scroll the page.
-	</div>
-
-	<div id="relativeel">
-		<p>A relative element with an image</p>
-		<img src="image.jpg" />
-	</div>
-
-	<div id="nomouseel">
-		This is another relative element. This time, it won't move with the mouse - so mobile only!
-	</div>
-
-	<div id="invertedel">
-		This element is also relative. Also, it will have both axes inverted.
-	</div>
+	
 
 	<div id="horizontalel">
 		This element will only move horizontally
 	</div>
 
-	<div id="verticalel">
-		This element will only move vertically
-	</div>
+	
 </body>
 </html>
