@@ -93,6 +93,14 @@ $(document).ready(function() {
 					arrows: false,
 					fade: true,
 					draggable: false
+				}).on('beforeChange', function(event, slick, currentSlide, nextSlide){
+					if ($('.slick-active video').length == 1) {
+						$('.slick-active video').get(0).pause();
+					}
+				}).on('afterChange', function(event, slick, currentSlide){
+					if ($('.slick-active video').length == 1) {
+						$('.slick-active video').get(0).play();
+					}
 				});
 			} else {
 				$('svg').remove();
