@@ -14,31 +14,13 @@
 	<link href='//fonts.googleapis.com/css?family=Lato:300,700' rel='stylesheet' type='text/css'>
 	<script>
 	$(document).ready(function() {
-		$('#fixedel').gyroOn({
-			position: 'fixed',
-			distance: 100,
-			speed: 2000
-		});
-
-		$('#relativeel').gyroOn();
-
-		$('#nomouseel').gyroOn({
-			mouse: false
-		});
-
-		$('#invertedel').gyroOn({
-			invert: true
-		});
 
 		$('#horizontalel').gyroOn({
-			direction: 'horizontal',
+			direction: 'vertical',
 			distance: 1000,
-			speed: 2000
+			speed: 500
 		});
-
-		$('#verticalel').gyroOn({
-			direction: 'vertical'
-		});
+		
 	});
 	</script>
 	<style type="text/css">
