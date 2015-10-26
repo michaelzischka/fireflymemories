@@ -10,16 +10,19 @@ body {
 	right: 0;
 }
 
-.slick {
-	
-	img {
-		width: 100vw;
-		max-height: 100vh !important;
-		background-size: contain;
-	}
-}
-
 .slideshow {
+	
+	.slick {
+	
+		img {
+			width: 100vw !important;
+			max-width: 100vw !important;
+			height: 100vh !important;
+			max-height: 100vh !important;
+			object-fit: cover;
+			background-color: green;
+		}
+	}
 	
 	.slideshow-dragndrop {
 		position: fixed;

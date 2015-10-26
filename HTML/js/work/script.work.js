@@ -44,6 +44,11 @@ $(document).ready(function() {
 			});
 		}
 	});
+	
+	// slick dragn drop
+	$('.slideshow-dragndrop').on('click', function() {
+		$('.slick').slick('slickNext');    
+	});
 		
 });
 
