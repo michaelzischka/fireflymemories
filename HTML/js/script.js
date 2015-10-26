@@ -1,3 +1,10 @@
+
+    
+    // slider nav
+    sliderNext = function() {
+	    $('.slick').slick('slickNext'); 
+    };
+
 $(document).ready(function() {
 	
 	// disable gesture
@@ -41,11 +48,6 @@ $(document).ready(function() {
     window.setTimeout(function() {
 		goToStep(5);
     }, 23000);
-    
-    // slider nav
-    var sliderNext = function() {
-	    $('.slick').slick('slickNext'); 
-    };
 	
 	// steps
 	var step = 1;
