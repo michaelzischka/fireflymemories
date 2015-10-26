@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, user-scalable=no" />
+	<title>jQuery Scrolling Chess by Davide Cassenti</title>
+	<meta name="title" content="jQuery Scrolling Chess by Davide Cassenti" />
+	<meta name="description" content="Add a chessboard that plays as you scroll" />
+	<meta content="http://davide.cassenti.net/projects/scrolling-chess/demo.html" property="og:url" />
+	<meta name="author" content="Davide Cassenti">
+	<link rel="canonical" href="http://davide.cassenti.net/projects/scrolling-chess/demo.html" />
+	<script type="text/javascript" src="//code.jquery.com/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="jquery.gyro.min.js"></script>
+	<link href='//fonts.googleapis.com/css?family=Lato:300,700' rel='stylesheet' type='text/css'>
+	<script>
+	$(document).ready(function() {
+		$('#fixedel').gyroOn({
+			position: 'fixed',
+			distance: 100,
+			speed: 2000
+		});
+
+		$('#relativeel').gyroOn();
+
+		$('#nomouseel').gyroOn({
+			mouse: false
+		});
+
+		$('#invertedel').gyroOn({
+			invert: true
+		});
+
+		$('#horizontalel').gyroOn({
+			direction: 'horizontal'
+		});
+
+		$('#verticalel').gyroOn({
+			direction: 'vertical'
+		});
+	});
+	</script>
+	<style type="text/css">
+		body {
+			background: black;
+			color: white;
+			font-family: "Lato", sans-serif;
+			font-weight: 300;
+		}
+
+		h1, h2 {
+			font-weight: 700;
+			color: red;
+			margin: 0;
+		}
+
+		#fixedel {
+			color: green;
+			z-index: -1;
+		}
+
+		#relativeel {
+			color: yellow;
+			text-align: center;
+		}
+
+		#nomouseel {
+			color: pink;
+		}
+
+		#invertedel {
+			color: cyan;
+		}
+
+		#horizontalel {
+			color: lightgray;
+		}
+
+		#verticalel {
+			color: violet;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<h1>jQuery Gyro</h1>
+		<h2>by Davide Cassenti</h2>
+
+		<p>jQuery Gyro lets you move elements in the page as you move the device. The effect uses the device motion sensor and lets you customize speed and distance.</p>
+	</header>
+	<div id="fixedel">
+		This element is in fixed position. It will always stay on top of the page, no matter how you scroll the page.
+	</div>
+
+	<div id="relativeel">
+		<p>A relative element with an image</p>
+		<img src="image.jpg" />
+	</div>
+
+	<div id="nomouseel">
+		This is another relative element. This time, it won't move with the mouse - so mobile only!
+	</div>
+
+	<div id="invertedel">
+		This element is also relative. Also, it will have both axes inverted.
+	</div>
+
+	<div id="horizontalel">
+		This element will only move horizontally
+	</div>
+
+	<div id="verticalel">
+		This element will only move vertically
+	</div>
+</body>
+</html>
