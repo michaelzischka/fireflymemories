@@ -1,9 +1,7 @@
-
-    
-    // slider nav
-    sliderNext = function() {
-	    $('.slick').slick('slickNext'); 
-    };
+// slider nav
+sliderNext = function() {
+    $('.slick').slick('slickNext'); 
+};
 
 $(document).ready(function() {
 	
@@ -46,23 +44,26 @@ $(document).ready(function() {
 		goToStep(3);
     }, 20000);
     window.setTimeout(function() {
-		goToStep(5);
+		goToStep(4);
     }, 23000);
+    window.setTimeout(function() {
+		goToStep(5);
+    }, 40000);
 	
 	// steps
-	var step = 1;
+	$.step = 1;
 	$('.next').on('click', function() {
-		goToStep(step);
+		goToStep($.step);
 	});
 	var goToStep = function(step) {
-		if (step == 9) {
+		$.step = step;
+		if (step == 6) {
 			step = 3;
 		}
-		step++;
 		$('.step').fadeOut();
 		$('.step-'+step).fadeIn();
 		
-		if (step == 6) {
+		if (step == 3) {
 			// slick slider
 			$('.slick').slick({
 				arrows: false,
@@ -71,6 +72,10 @@ $(document).ready(function() {
 			});
 			run6();
 		}
+		if (step == 4) {
+			$('svg:eq(1)').fadeOut();
+		}
+		step++;
 	}
 		
 });
