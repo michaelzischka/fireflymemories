@@ -7,9 +7,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
-		<link rel="stylesheet" type="text/css" href="bower_components/animate.css/animate.min.css">			
+		<link rel="stylesheet" type="text/css" href="bower_components/animate.css/animate.min.css">
 	</head>
 	<body class="white center p4 bg-black">
+
+		<div id="fly" style="background-color: #ff0000; width:20px; height:20px"></div>
 
 		<div class="step step-1 titel-animation">
 			<div id="firefly-1"></div>
@@ -49,7 +51,7 @@
 					<div><img src="http://graffart.eu/blog/wp-content/uploads/2008/11/light_graffiti_by_yourrequiem.jpg"></div>
 				</div>
 			</div>
-			<div class="slideshow-dragndrop"></div>
+			<div id="slideshow-dragndrop" class="slideshow-dragndrop"></div>
 		</div>
 
 		<div class="step step-7 firefly-from-video">
@@ -75,9 +77,10 @@
 		<script src="bower_components/textillate/assets/jquery.fittext.js"></script>
 		<script src="bower_components/textillate/assets/jquery.lettering.js"></script>
 		<script src="bower_components/textillate/jquery.textillate.js"></script>
-		<script src="bower_components/slick-carousel/slick/slick.min.js"></script>
+		<script src="bower_components/slick-carousel/slick/slick.js"></script>
 		<script src="bower_components/raphael.js/raphael-min.js"></script>
-		<script src="js/script.js"></script>
+		<script src="js/TweenMax.min.js" ></script>
 		<script src="js/dragndrop.js"></script>
+		<script src="js/script.js"></script>
 	</body>
 </html>
