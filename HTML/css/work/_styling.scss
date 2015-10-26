@@ -6,6 +6,13 @@
 	width: 100%;
 	height: 100vh;
 	
+	img {
+		width: auto !important;
+		max-width: inherit !important;
+		max-height: 50vh;
+		margin: auto;
+	}
+	
 	&:first-child {
 		display: block;
 	}

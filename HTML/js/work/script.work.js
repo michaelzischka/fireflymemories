@@ -18,6 +18,16 @@ $(document).ready(function() {
 		ev.preventDefault();
 	});
 	
+	// textillate
+	$('.title-animation-elm').textillate({
+		in: {
+			effect: 'bounceIn'
+		}
+	});
+	
+	// slick slider
+	$('.slick').slick();
+	
 	// steps
 	var step = 1;
 	$('.step').on('click', function() {
