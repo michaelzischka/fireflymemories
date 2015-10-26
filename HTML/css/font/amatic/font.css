@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'Amatic SC';
+  src: url('AmaticSC-Regular.eot'); /* IE9 Compat Modes */
+  src: url('AmaticSC-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('AmaticSC-Regular.woff') format('woff'), /* Modern Browsers */
+       url('AmaticSC-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('AmaticSC-Regular.svg#9af3c996af706f139dcbbe62435a567b') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  400;
+}
+

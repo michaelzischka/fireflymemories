@@ -88,24 +88,28 @@ $(document).ready(function() {
 		}
 		if (step == 3) {
 			if ($('svg').length == 0) {
-				$('.step-3 audio').get(0).play();
-				$('.slick').slick({
-					arrows: false,
-					fade: true,
-					draggable: false
-				}).on('beforeChange', function(event, slick, currentSlide, nextSlide){
-					if ($('.slick-active video').length == 1) {
-						$('.slick-active video').get(0).pause();
-					}
-				}).on('afterChange', function(event, slick, currentSlide){
-					if ($('.slick-active video').length == 1) {
-						$('.slick-active video').get(0).play();
-					}
-				});
+				
 			} else {
+				$('.story-1').removeClass('active'); 
+				$('.story-2').addClass('active'); 
 				$('svg').remove();
 			}	
+			$('.story.active audio').get(0).currentTime = 0;
+			$('.story.active audio').get(0).play();
 			run6();		
+			$('.story.active .slick').slick({
+				arrows: false,
+				fade: true,
+				draggable: false
+			}).on('beforeChange', function(event, slick, currentSlide, nextSlide){
+				if ($('.slick-active video').length == 1) {
+					$('.slick-active video').get(0).pause();
+				}
+			}).on('afterChange', function(event, slick, currentSlide){
+				if ($('.slick-active video').length == 1) {
+					$('.slick-active video').get(0).play();
+				}
+			});
 		}
 		if (step == 4) {
 			$('.step-3 audio').get(0).pause();

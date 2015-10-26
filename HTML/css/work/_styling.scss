@@ -1,3 +1,19 @@
+@font-face {
+    font-family: 'Amatic SC';
+	src: url('font/amatic/AmaticSC-Regular.eot'); /* IE9 Compat Modes */
+	src: url('font/amatic/AmaticSC-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+	   url('font/amatic/AmaticSC-Regular.woff') format('woff'), /* Modern Browsers */
+	   url('font/amatic/AmaticSC-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+	   url('font/amatic/AmaticSC-Regular.svg#9af3c996af706f139dcbbe62435a567b') format('svg'); /* Legacy iOS */ 
+	font-style:   normal;
+	font-weight:  400;
+}
+
+* {
+	font-family: 'Amatic SC', cursive !important;
+	font-size: 130%;
+}
+	
 body {
 	overflow: hidden;
 	width: 100%;
@@ -21,6 +37,14 @@ body {
 }
 
 .slideshow {
+	
+	.story {
+		display: none;
+		
+		&.active {
+			display: block;
+		}
+	}
 	
 	.slick {
 		height: 100vh;
