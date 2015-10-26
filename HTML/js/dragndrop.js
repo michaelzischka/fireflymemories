@@ -15,16 +15,21 @@ for (var i = 0; i < parts; i++) {
   pathSVG += " c0,0,10-20,30-20 s30,20,30,20 c0,0,10,20,30,20 c20-0,30-20,30-20";
 }
 
-var p = r.path(pathSVG).attr({stroke: "#ffffaa"}),
+var p = r.path(pathSVG).attr({stroke: "#ffffff", "stroke-dasharray": "-", opacity: 0.1 }),
   pt = p.getPointAtLength(l);
   e = r.ellipse(pt.x, pt.y, 10, 10).attr({stroke: "none", fill: "#ffff00"}),
+  e2 = r.ellipse(pt.x, pt.y, 50, 50).attr({stroke: "none", fill: "#00ffff", opacity: 0}),
   totLen = p.getTotalLength(),
+
+e.glow({width: 30, color: "#ffffff"});
+
+// alert($("div.slick > div").count());
 
 start = function () {
   // storing original coordinates
   this.ox = this.attr("cx");
   this.oy = this.attr("cy");
-  this.attr({opacity: 1});
+  // this.attr({opacity: 1});
 },
 move = function (dx, dy) {
   var tmpPt = {
@@ -35,11 +40,14 @@ move = function (dx, dy) {
   l = gradSearch(l, tmpPt);
   pt = p.getPointAtLength(l);
   this.attr({cx: pt.x, cy: pt.y});
+  e.attr({cx: pt.x, cy: pt.y});
+  $("svg > path:not(:eq(0))").remove();
+  e.glow({width: 30, color: "#ffffff"});
   sliderNext();
 },
 up = function () {
   // restoring state
-  this.attr({opacity: 1});
+  // this.attr({opacity: 1});
 },
 gradSearch = function (l0, pt) {
   l0 = l0 + totLen;
@@ -72,5 +80,10 @@ dist = function (pt1, pt2) {
   return Math.sqrt(dx * dx + dy * dy);
 };
 
-e.drag(move, start, up);
+e2.drag(move, start, up);
+
 };
+
+// $("svg > defs").append("<filter id='f1' x='-50%' y='-50%' width='200%' height='200%'><feOffset result='offOut' in='SourceAlpha' dx='2' dy='2' /><feGaussianBlur result='blurOut' in='offOut' stdDeviation='10' /><feBlend in='SourceGraphic' in2='blurOut' mode='normal' /></filter>")
+//
+// $("svg > ellipse(1)").filter("f1");
