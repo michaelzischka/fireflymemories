@@ -13,6 +13,11 @@ $(document).ready(function() {
 	}
 	detectMobile();
 	
+	// disable gesture
+	$('body').hammer().bind('none contextmenu', function(ev) {
+		ev.preventDefault();
+	});
+	
 	// steps
 	var step = 1;
 	$('.step').on('click', function() {
