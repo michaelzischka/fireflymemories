@@ -25,12 +25,9 @@ $(document).ready(function() {
 		}
 	});
 	
-	// slick slider
-	$('.slick').slick();
-	
 	// steps
 	var step = 1;
-	$('.step').on('click', function() {
+	$('.next').on('click', function() {
 		console.log('hey');
 		if (step == 9) {
 			step = 3;
@@ -38,6 +35,14 @@ $(document).ready(function() {
 		step++;
 		$('.step').fadeOut();
 		$('.step-'+step).fadeIn();
+		
+		if (step == 6) {
+			// slick slider
+			$('.slick').slick({
+				arrows: false,
+				fade: true
+			});
+		}
 	});
 		
 });
