@@ -18,13 +18,6 @@ $(document).ready(function() {
 		ev.preventDefault();
 	});
 	
-	// textillate
-	$('.title-animation-elm').textillate({
-		in: {
-			effect: 'bounceIn'
-		}
-	});
-	
 	// steps
 	var step = 1;
 	$('.next').on('click', function() {
@@ -55,6 +48,35 @@ $(document).ready(function() {
 	$('.slideshow-dragndrop').on('click', function() {
 		$('.slick').slick('slickNext');    
 	});
+	
+	// firefly #1
+    var r = Raphael("firefly-1"),
+        set = r.set(),
+        c = r.circle(200, 200, 10).attr({fill: "#ffff00"});
+    run1 = function () {
+        var ex = 'elastic',
+            ey = '>';
+        c.stop().animate({
+            "0%": {cx: 0, cy: 0, easing: ex, opacity: 0},
+            "30%": {cx: 300, cy: 200, easing: ex, opacity: .3},
+            "70%": {cx: 100, cy: 400, easing: ex, opacity: 1},
+            "100%": {cx: 800, cy: 500, easing: ex}
+        }, 15000);
+    };
+    
+    // timing
+    run1();
+    $('.title-animation-elm').hide();
+    window.setTimeout(function() {
+	 
+		// textillate
+		$('.title-animation-elm').fadeIn().textillate({
+			in: {
+				effect: 'bounceIn'
+			}
+		});
+		
+    }, 7000);
 		
 });
 
