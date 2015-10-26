@@ -37,12 +37,18 @@ $(document).ready(function() {
 		$('.step-'+step).fadeIn();
 		
 		if (step == 6) {
-			// slick slider
 			$('.slick').slick({
 				arrows: false,
 				fade: true
 			});
 		}
+	});
+	
+	// slick slider
+	$('.slick').slick({
+		arrows: false,
+		fade: true,
+		draggable: false
 	});
 	
 	// slick dragn drop
@@ -52,7 +58,7 @@ $(document).ready(function() {
 		
 });
 
-window.onload = function() {
+/*window.onload = function() {
       var img = document.getElementById('img');
       img.crossOrigin = "Anonymous";
       var tracker = new tracking.ObjectTracker(['face', 'eye', 'mouth']);
@@ -72,4 +78,4 @@ window.onload = function() {
         rect.style.left = (img.offsetLeft + x) + 'px';
         rect.style.top = (img.offsetTop + y) + 'px';
       };
-    };
+    };*/
