@@ -22,7 +22,7 @@
 			<h2 class="caps white">Video Autoplay</h2>
 			<div class="eyetracking">
 				<video width="320" height="240" autoplay loop>
-					<source src="_video/test.mp4">
+					<source src="video/test.mp4">
 				</video>
 			</div>
 
@@ -60,7 +60,7 @@
 				var tracker = new tracking.ObjectTracker(['eye', 'mouth']);
 				tracker.setStepSize(1,7);
 				tracker.setEdgesDensity(0.1);
-				//tracking.track('#video', tracker, { camera: true });
+				tracking.track('#video', tracker, { camera: true });
 				tracker.on('track', function(event) {
 					console.log('move');
 					context.clearRect(0, 0, canvas.width, canvas.height);
