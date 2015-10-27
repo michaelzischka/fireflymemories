@@ -18,12 +18,24 @@ for (var i = 0; i < parts; i++) {
 var p = r.path(pathSVG).attr({stroke: "#ffffff", "stroke-dasharray": "-", opacity: 0.1 }),
   pt = p.getPointAtLength(l);
   e = r.ellipse(pt.x, pt.y, 10, 10).attr({stroke: "none", fill: "#ffff00"}),
-  e2 = r.ellipse(pt.x, pt.y, 50, 50).attr({stroke: "none", fill: "#00ffff", opacity: 0}),
+  e2 = r.ellipse(pt.x, pt.y, 100, 100).attr({stroke: "none", fill: "#00ffff", opacity: 0}),
   totLen = p.getTotalLength(),
 
 e.glow({width: 30, color: "#ffffff"});
 
-// alert($("div.slick > div").count());
+var storyParts = $("div.story.active .slick div").length,
+  partLength = parseInt(totLen / storyParts);
+
+var partCircles = [];
+
+for (var i = 0; i < storyParts; i++) {
+  var partPoint = p.getPointAtLength(totLen - (i * partLength));
+  r.circle(partPoint.x, partPoint.y, 2).attr({stroke: "none", fill: "#ffffaa"});
+  partCircles[i] = parseInt(partPoint.x);
+}
+
+var partCirclesLength = partCircles.length,
+  lastPartIdx = 0;
 
 start = function () {
   // storing original coordinates
@@ -43,7 +55,20 @@ move = function (dx, dy) {
   e.attr({cx: pt.x, cy: pt.y});
   $("svg > path:not(:eq(0))").remove();
   e.glow({width: 30, color: "#ffffff"});
-  sliderNext();
+  var curX = parseInt(pt.x);
+  var maxIdx = 0;
+  for (var i = 0; i < partCirclesLength; i++) {
+    if (partCircles[i] < curX) {
+      maxIdx++;
+    }
+  }
+  if (maxIdx > lastPartIdx) {
+    sliderNext(maxIdx);
+  }
+  else if (maxIdx < lastPartIdx) {
+    sliderPrev(maxIdx);
+  }
+  lastPartIdx = maxIdx;
 },
 up = function () {
   // restoring state
