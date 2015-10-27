@@ -163,6 +163,9 @@ $(document).ready(function() {
 					$('.slick-active video').get(0).play();
 				}
 			});
+			if ($('.slick-active video').length == 1) {
+				$('.slick-active video').get(0).play();
+			}
 		}
 		if (step == 4) {
 			$('.step-3 audio').get(0).pause();
