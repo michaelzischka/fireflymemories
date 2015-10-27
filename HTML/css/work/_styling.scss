@@ -12,6 +12,12 @@
 * {
 	font-family: 'Amatic SC', cursive !important;
 	font-size: 130%;
+	text-transform: lowercase;
+}
+
+svg {
+	display: none;
+	margin: -58px 0 0 -130px;
 }
 	
 body {
@@ -20,13 +26,24 @@ body {
 	height: 100vh;
 }
 
+.ipad-size {
+	pointer-events: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	width: 1024px;
+	height: 768px;
+	outline: 1px solid red;
+}
+
 #firefly {
 	position: relative;
 	z-index: 1;
 	width: 20px;
 	height: 20px;
 	background-color: rgba(255, 255, 0, .9);
-	box-shadow: 0 0 23px white;
+	box-shadow: 0 0 30px white;
 	border-radius: 100%;
 }
 

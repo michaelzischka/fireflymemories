@@ -1,4 +1,7 @@
 // slider nav
+sliderPrev = function() {
+    $('.slick').slick('slickPrev'); 
+};
 sliderNext = function() {
     $('.slick').slick('slickNext'); 
 };
@@ -33,13 +36,7 @@ $(document).ready(function() {
 		flyaround2();
 		window.setTimeout(function() {
 			goToStep(3);
-	    }, 5000);
-	    window.setTimeout(function() {
-			goToStep(4);
-	    }, 30000);
-	    window.setTimeout(function() {
-			goToStep(5);
-	    }, 35000);   
+	    }, 5000);  
     }
 	
 	// restart
@@ -68,6 +65,30 @@ $(document).ready(function() {
 	        {x:140, y:600}
 	    ], autoRotate:true}, ease:Power1.easeInOut});
 	};
+	var flyaround3 = function() {
+	    TweenMax.to($('#firefly'), 5, {bezier:{type:"thru", values:[
+	        {x:140, y:600},
+	        {x:859, y:597}
+	    ], autoRotate:true}, ease:Power1.easeInOut});
+	};	
+	var flyaround4 = function() {
+		$('#firefly').fadeIn();
+	    TweenMax.to($('#firefly'), 5, {bezier:{type:"thru", values:[
+	        {x:859, y:597},
+	        {x:800, y:200},
+	        {x:140, y:600},
+	        {x:800, y:200}
+	    ], autoRotate:true}, ease:Power1.easeInOut});
+	};	
+	var flyaround5 = function() {
+	    TweenMax.to($('#firefly'), 20, {bezier:{type:"thru", values:[
+	        {x:800, y:200},
+	        {x:859, y:597},
+	        {x:800, y:200},
+	        {x:140, y:600},
+	        {x:140, y:600}
+	    ], autoRotate:true}, ease:Power1.easeInOut});
+	};			
     
 	// steps
 	$.step = 1;
@@ -88,15 +109,22 @@ $(document).ready(function() {
 		}
 		if (step == 3) {
 			if ($('svg').length == 0) {
-				
+				var audioSeconds = 90;
 			} else {
 				$('.story-1').removeClass('active'); 
 				$('.story-2').addClass('active'); 
 				$('svg').remove();
+				var audioSeconds = 55;
 			}	
 			$('.story.active audio').get(0).currentTime = 0;
 			$('.story.active audio').get(0).play();
-			run6();		
+			run6();	
+			$('#firefly').fadeOut('fast');
+			flyaround3();
+			$('svg').fadeIn('slow');
+		    window.setTimeout(function() {
+				goToStep(4);
+		    }, audioSeconds * 1000);
 			$('.story.active .slick').slick({
 				arrows: false,
 				fade: true,
@@ -114,6 +142,18 @@ $(document).ready(function() {
 		if (step == 4) {
 			$('.step-3 audio').get(0).pause();
 			$('svg').fadeOut();
+			flyaround4();
+		    window.setTimeout(function() {
+				goToStep(5);
+		    }, 10000); 
+			$('.haiku p').fadeIn().textillate({
+				in: {
+					effect: 'bounceIn'
+				}
+			});
+		}
+		if (step == 5) {
+			flyaround5();
 		}
 		step++;
 	}
