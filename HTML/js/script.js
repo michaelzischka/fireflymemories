@@ -15,40 +15,27 @@ $(document).ready(function() {
     
     // timing
     $('.title-animation-elm').hide();
+    var sound2 = new Audio('../audio/sound.mp3');
+		sound2.play();
+		sound2.volume = 0.2;
     window.setTimeout(function() {
 		$('.title-animation-elm').fadeIn().textillate({
 			in: {
 				effect: 'bounceIn'
 			}
 		});
-    }, 5000);
+    }, 7000);
     window.setTimeout(function() {
 		$('.step-1').animate({
 			marginTop: '-800px'
 		}, 5000, function() {
-			closeEyesChain();
 			goToStep(2);
 		});
     }, 8000);
-    
-    // chain
-    var closeEyesChain = function() {
-		flyaround2();				
-		$('.track-end').removeClass('hide').hide();
-		window.setTimeout(function() {
-			$('.track-start').fadeOut();
-			window.setTimeout(function() {				
-				$('.track-end').fadeIn();
-			}, 4000);
-			window.setTimeout(function() {	
-				goToStep(3);
-			}, 12000);
-	    }, 7000);  
-    }
 	
 	// restart
 	$('.restart').on('click', function() {
-		closeEyesChain();
+		goToStep(2);
 	});
 	
 	// firefly
@@ -110,15 +97,29 @@ $(document).ready(function() {
 		$('.step').fadeOut();
 		$('.step-'+step).fadeIn();
 		if (step == 2) {
+			var soundIntro = new Audio('../audio/rest_aminute.mp3.mp3');
+			soundIntro.play();
 			$('.step-1 audio').animate({
 				volume: 0	
-			}, 4000);
+			}, 2000);
+			flyaround2();	
+			$('.track-start').fadeIn();			
+			$('.track-end').removeClass('hide').hide();
+			window.setTimeout(function() {
+				$('.track-start').fadeOut();
+				window.setTimeout(function() {				
+					$('.track-end').fadeIn();
+					window.setTimeout(function() {	
+						goToStep(3);
+					}, 10000);
+				}, 23000);
+		    }, 7000);
 			window.setTimeout(function() {
 				$('.forest-full').animate({
 					opacity: .23
 				}, 7000);
 				$('.forest-left, .forest-right').addClass('active');
-			}, 5000); // eyes closing time
+			}, 10000);			
 		}
 		if (step == 3) {
 			if ($('svg').length == 0) {
@@ -158,14 +159,14 @@ $(document).ready(function() {
 			flyaround4();
 		    window.setTimeout(function() {
 				goToStep(5);
-		    }, 20000); 
-		    $('.haiku audio').html('<source src="audio/haiku_blood_heart.mp3.mp3">');
-		    $('.haiku audio').get(0).play();
-			$('.haiku p').fadeIn().textillate({
+		    }, 20000);		    
+			var soundHaiku1 = new Audio('../audio/haiku_blood_heart.mp3.mp3');
+			soundHaiku1.play();
+			$('.haiku p').fadeIn();/*.textillate({
 				in: {
 					effect: 'bounceIn'
 				}
-			});
+			});*/
 		}
 		if (step == 5) {
 			flyaround5();
