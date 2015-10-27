@@ -17,7 +17,7 @@ for (var i = 0; i < parts; i++) {
 
 var p = r.path(pathSVG).attr({stroke: "#ffffff", "stroke-dasharray": "-", opacity: 0.1 }),
   pt = p.getPointAtLength(l);
-  e = r.ellipse(pt.x, pt.y, 10, 10).attr({stroke: "none", fill: "#ffff00"}),
+  e = r.ellipse(pt.x, pt.y, 10, 10).attr({stroke: "none", fill: "#ffffaa"}),
   e2 = r.ellipse(pt.x, pt.y, 100, 100).attr({stroke: "none", fill: "#00ffff", opacity: 0}),
   totLen = p.getTotalLength(),
 
