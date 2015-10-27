@@ -157,6 +157,12 @@ $(document).ready(function() {
 		}
 		step++;
 	}
+	
+	// debug
+	$('.play').on('click', function() {
+		$('.story.active audio').get(0).currentTime = 0;
+		$('.story.active audio').get(0).play();
+	});
 		
 });
 
