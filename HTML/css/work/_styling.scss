@@ -49,6 +49,10 @@ body {
 	
 .forest-full {
 	opacity: 0;
+	width: inherit !important;
+	max-width: inherit !important;
+	height: 100vh;
+	object-fit: cover;
 }
 
 .christians-forest-awesomeness {
@@ -149,7 +153,7 @@ body {
 			object-fit: cover;
 	}
 	
-	&.step-1 {
+	&.step-5 {
 		display: block;
 	}
 }

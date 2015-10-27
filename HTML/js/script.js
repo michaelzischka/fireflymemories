@@ -73,7 +73,7 @@ $(document).ready(function() {
 	    ], autoRotate:true}, ease:Power1.easeInOut});
 	};
 	var flyaround3 = function() {
-	    TweenMax.to($('#firefly'), 5, {bezier:{type:"thru", values:[
+	    TweenMax.to($('#firefly'), 15, {bezier:{type:"thru", values:[
 	        {x:140, y:600},
 	        {x:859, y:597}
 	    ], autoRotate:true}, ease:Power1.easeInOut});
@@ -115,14 +115,14 @@ $(document).ready(function() {
 			}, 4000);
 			window.setTimeout(function() {
 				$('.forest-full').animate({
-					opacity: 1
-				}, 7);
+					opacity: .23
+				}, 7000);
 				$('.forest-left, .forest-right').addClass('active');
 			}, 5000); // eyes closing time
 		}
 		if (step == 3) {
 			if ($('svg').length == 0) {
-				var audioSeconds = 90;
+				var audioSeconds = 10;//90;
 			} else {
 				$('.story-1').removeClass('active'); 
 				$('.story-2').addClass('active'); 
@@ -158,7 +158,9 @@ $(document).ready(function() {
 			flyaround4();
 		    window.setTimeout(function() {
 				goToStep(5);
-		    }, 10000); 
+		    }, 20000); 
+		    $('.haiku audio').html('<source src="audio/haiku_blood_heart.mp3.mp3">');
+		    $('.haiku audio').get(0).play();
 			$('.haiku p').fadeIn().textillate({
 				in: {
 					effect: 'bounceIn'
