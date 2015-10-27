@@ -47,20 +47,28 @@ $(document).ready(function() {
 	        {x:500, y:400},
 	        {x:400, y:200},
 	        {x:500, y:300},
-	        {x:800, y:200},
 	        {x:500, y:500}
 	    ], autoRotate:true}, ease:Power1.easeInOut});
 	};
 	flyaround1();
 	var flyaround2 = function() {
-	    TweenMax.to($('#firefly'), 5, {bezier:{type:"thru", values:[
+	    TweenMax.to($('#firefly'), 40, {bezier:{type:"thru", values:[
 	        {x:500, y:500},
+	        {x:800, y:200},
+	        {x:300, y:0},
+	        {x:500, y:400},
+	        {x:400, y:200},
+	        {x:500, y:300},
+	        {x:300, y:0},
+	        {x:500, y:400},
+	        {x:400, y:200},
+	        {x:500, y:300},
 	        {x:800, y:200},
 	        {x:140, y:600}
 	    ], autoRotate:true}, ease:Power1.easeInOut});
 	};
 	var flyaround3 = function() {
-	    TweenMax.to($('#firefly'), 15, {bezier:{type:"thru", values:[
+	    TweenMax.to($('#firefly'), 5, {bezier:{type:"thru", values:[
 	        {x:140, y:600},
 	        {x:859, y:597}
 	    ], autoRotate:true}, ease:Power1.easeInOut});
@@ -133,7 +141,10 @@ $(document).ready(function() {
 			$('.story.active audio').get(0).currentTime = 0;
 			$('.story.active audio').get(0).play();
 			run6();	
-			$('#firefly').fadeOut('fast');
+			$('#firefly').addClass('zoom');
+		    window.setTimeout(function() {
+				$('#firefly').removeClass('zoom').fadeOut('slow');
+			}, 3);
 			flyaround3();
 			$('svg').fadeIn('slow');
 		    window.setTimeout(function() {
