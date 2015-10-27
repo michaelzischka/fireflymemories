@@ -78,11 +78,13 @@ body {
 		height: 100vh;
 		background-repeat: no-repeat;
 		background-size: contain;
+		transform: scale(1);
 		opacity: 1;
 		transition: 7s;
 		
 		&.active {
 			left: -100%;
+			transform: scale(2);
 			opacity: 0;
 		}		
 	}
@@ -95,11 +97,13 @@ body {
 		height: 100vh;
 		background-size: contain;
 		background-repeat: no-repeat;
+		transform: scale(1);
 		opacity: 1;
 		transition: 7s;
 		
 		&.active {
 			right: -100%;
+			transform: scale(2);
 			opacity: 0;
 		}	
 	}
@@ -165,7 +169,7 @@ body {
 		}
 	}
 	
-	&.step-1 {
+	&.step-5 {
 		display: block;
 	}
 }

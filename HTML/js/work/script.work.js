@@ -52,7 +52,7 @@ $(document).ready(function() {
 	};
 	flyaround1();
 	var flyaround2 = function() {
-	    TweenMax.to($('#firefly'), 40, {bezier:{type:"thru", values:[
+	    TweenMax.to($('#firefly'), 35, {bezier:{type:"thru", values:[
 	        {x:500, y:500},
 	        {x:800, y:200},
 	        {x:300, y:0},
