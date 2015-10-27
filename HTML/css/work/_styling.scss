@@ -26,7 +26,7 @@ body {
 	height: 100vh;
 }
 
-.ipad-size {
+._ipad-size {
 	pointer-events: none;
 	position: absolute;
 	top: 0;
@@ -47,10 +47,50 @@ body {
 	border-radius: 100%;
 }
 
-.play {
-	position: fixed;
+.christians-forest-awesomeness {
+	position: absolute;
 	top: 0;
-	right: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	
+	.forest-full {
+		position: absolute;
+	}
+	
+	.forest-left {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100vh;
+		background-repeat: no-repeat;
+		background-size: contain;
+		opacity: 1;
+		transition: 7s;
+		
+		&.active {
+			left: -100%;
+			opacity: 0;
+		}		
+	}
+	
+	.forest-right {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 100%;
+		height: 100vh;
+		background-size: contain;
+		background-repeat: no-repeat;
+		opacity: 1;
+		transition: 7s;
+		
+		&.active {
+			right: -100%;
+			opacity: 0;
+		}	
+	}
 }
 
 .slideshow {

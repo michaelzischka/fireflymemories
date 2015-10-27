@@ -1,9 +1,9 @@
 // slider nav
-sliderPrev = function() {
-    $('.slick').slick('slickPrev'); 
+var sliderPrev = function() {
+    $('.story.active .slick').slick('slickPrev'); 
 };
-sliderNext = function() {
-    $('.slick').slick('slickNext'); 
+var sliderNext = function() {
+    $('.story.active .slick').slick('slickNext'); 
 };
 
 $(document).ready(function() {
@@ -27,16 +27,23 @@ $(document).ready(function() {
 			marginTop: '-800px'
 		}, 5000, function() {
 			closeEyesChain();
+			goToStep(2);
 		});
     }, 8000);
     
     // chain
     var closeEyesChain = function() {
-	    goToStep(2);
-		flyaround2();
+		flyaround2();				
+		$('.track-end').removeClass('hide').hide();
 		window.setTimeout(function() {
-			goToStep(3);
-	    }, 5000);  
+			$('.track-start').fadeOut();
+			window.setTimeout(function() {				
+				$('.track-end').fadeIn();
+			}, 4000);
+			window.setTimeout(function() {	
+				goToStep(3);
+			}, 12000);
+	    }, 7000);  
     }
 	
 	// restart
@@ -105,7 +112,11 @@ $(document).ready(function() {
 		if (step == 2) {
 			$('.step-1 audio').animate({
 				volume: 0	
-			}, 4000);//.get(0).pause();
+			}, 4000);
+			window.setTimeout(function() {
+				$('.forest-full').hide();
+				$('.forest-left, .forest-right').addClass('active');
+			}, 5000); // eyes closing time
 		}
 		if (step == 3) {
 			if ($('svg').length == 0) {
