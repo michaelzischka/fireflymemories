@@ -1,9 +1,9 @@
 // slider nav
-var sliderPrev = function() {
-    $('.story.active .slick').slick('slickPrev'); 
+var sliderPrev = function(slide) {
+    $('.story.active .slick').slick('slickGoTo', slide); 
 };
-var sliderNext = function() {
-    $('.story.active .slick').slick('slickNext'); 
+var sliderNext = function(slide) {
+    $('.story.active .slick').slick('slickGoTo', slide); 
 };
 
 $(document).ready(function() {
@@ -114,7 +114,9 @@ $(document).ready(function() {
 				volume: 0	
 			}, 4000);
 			window.setTimeout(function() {
-				$('.forest-full').hide();
+				$('.forest-full').animate({
+					opacity: 1
+				}, 7);
 				$('.forest-left, .forest-right').addClass('active');
 			}, 5000); // eyes closing time
 		}
