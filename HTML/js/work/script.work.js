@@ -123,7 +123,7 @@ $(document).ready(function() {
 		}
 		if (step == 3) {
 			if ($('svg').length == 0) {
-				var audioSeconds = 10;//90;
+				var audioSeconds = 90;
 			} else {
 				$('.story-1').removeClass('active'); 
 				$('.story-2').addClass('active'); 
