@@ -6,7 +6,10 @@ var sliderNext = function(slide) {
     $('.story.active .slick').slick('slickGoTo', slide); 
 };
 
-$(document).ready(function() {
+$(window).load(function() {
+	
+	// hide loader
+	$('.load').hide();
 	
 	// disable gesture
 	$('body').hammer().bind('none contextmenu', function(ev) {
