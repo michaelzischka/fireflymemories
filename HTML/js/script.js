@@ -15,7 +15,7 @@ $(document).ready(function() {
     
     // timing
     $('.title-animation-elm').hide();
-    var sound2 = new Audio('../audio/sound.mp3');
+    var sound2 = new Audio('audio/sound.mp3');
 		sound2.play();
 		sound2.volume = 0.2;
     window.setTimeout(function() {
@@ -105,7 +105,7 @@ $(document).ready(function() {
 		$('.step').fadeOut();
 		$('.step-'+step).fadeIn();
 		if (step == 2) {
-			var soundIntro = new Audio('../audio/rest_aminute.mp3.mp3');
+			var soundIntro = new Audio('audio/rest_aminute.mp3.mp3');
 			soundIntro.play();
 			$('.step-1 audio').animate({
 				volume: 0	
@@ -174,7 +174,7 @@ $(document).ready(function() {
 		    window.setTimeout(function() {
 				goToStep(5);
 		    }, 20000);		    
-			var soundHaiku1 = new Audio('../audio/haiku_blood_heart.mp3.mp3');
+			var soundHaiku1 = new Audio('audio/haiku_blood_heart.mp3.mp3');
 			soundHaiku1.play();
 			$('.haiku p').fadeIn();/*.textillate({
 				in: {
