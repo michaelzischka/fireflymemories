@@ -15,6 +15,22 @@
 	text-transform: lowercase;
 }
 
+.ipad {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 1274px;
+	height: 1000px;
+	background: url(../img/ipad-mini.png) no-repeat;
+	background-size: contain;
+	transform: translate(-50%, -50%);
+	
+	iframe {
+		margin: 43px 0 0 120px;
+		border: 0;
+	}
+}
+
 .opacity {
 	opacity: .5;
 }
